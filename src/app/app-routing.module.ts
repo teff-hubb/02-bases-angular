@@ -18,7 +18,7 @@ const routes: Routes = [
     component: ContactComponent
   },
   {
-  //  Ejemplo de carga perezoza o lazy load antigua y nueva
+  //  Ejemplo de carga perezoza o lazy load antigua y nueva, es menos propensa a errores.
     path: 'posts',
     // loadChildren: './pages/posts/posts.module#PostsModule'
     loadChildren: () => import('./pages/posts/posts.module').then(m => m.PostsModule)

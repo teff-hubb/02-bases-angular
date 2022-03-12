@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-posts',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  constructor() { }
+  mensajes: any;
 
-  ngOnInit(): void {
+  constructor( private dataService: DataService) { }
+
+  // Recibimos unos observables del dataService (getPost) y para poder consumirlos hay que suscribir
+  ngOnInit()  {
+    this.mensajes = this.dataService.getPosts();
+  // .subscribe( (posts: any) => {
+  // console.log(posts);
+  // this.mensajes = posts;
+  //   });
   }
 
 }
